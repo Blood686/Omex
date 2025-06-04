@@ -4,30 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Omex Bot - Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #222;
+      padding: 15px 30px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    nav ul li a:hover {
+      color: #ff4c4c;
+    }
+    .container {
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .gif-container img {
+      width: 320px;
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px #ff4c4caa;
+    }
+  </style>
 </head>
 <body>
- <nav>
-  <div class="logo">Omex</div>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="commands.html">Commands</a></li>
-    <li><a href="support.html">Support</a></li>
-    <li><a href="invite.html">Invite</a></li>
-     <li><a href="premium.html">Premium</a></li>
-   </ul>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="commands.html">Commands</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="invite.html">Invite</a></li>
+      <li><a href="premium.html">Premium</a></li>
+    </ul>
+  </nav>
 
-
-  <section class="hero">
+  <div class="container">
     <h1>Welcome to Omex Bot</h1>
-    <p>A free, powerful Discord bot for server moderation and management.</p>
-    <a href="invite.html" class="btn">Invite Omex</a>
-  </section>
-
-  <footer>
-    &copy; 2025 Omex Bot • Founder: Ken • Developer: Blood
-  </footer>
+    <p>Your free Discord server management bot — manage bans, roles, and more easily.</p>
+    
+    <div class="gif-container">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWJ6N2d0dXE1MDI5emxscXJvdDMyNGJwOGh6M3RxaWhhbXZyYnRmNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CY3A9zOlZR8uhFbeok/giphy.gif" alt="Omex Bot GIF" />
+    </div>
+  </div>
 </body>
 </html>
-
