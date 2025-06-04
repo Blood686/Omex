@@ -1,91 +1,98 @@
+/* style.css */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d0d;
-  color: #eee;
+  background-color: #0d1117;
+  color: #c9d1d9;
 }
 
 nav {
-  background-color: #111;
-  padding: 1rem 2rem;
+  background-color: #161b22;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.logo {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #00ffff;
+nav h1 {
+  color: #58a6ff;
+  margin: 0;
+  font-size: 1.5em;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 15px;
   margin: 0;
   padding: 0;
 }
 
 nav ul li a {
-  color: #aaa;
+  color: #c9d1d9;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
 }
 
-nav ul li a.active,
 nav ul li a:hover {
-  color: #00ffff;
+  background-color: #30363d;
+  color: #58a6ff;
 }
 
-.hero {
-  max-width: 700px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+main {
+  padding: 40px 20px;
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #00ffff;
+h2 {
+  font-size: 2rem;
+  color: #58a6ff;
 }
 
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  color: #ccc;
-}
-
-.btn {
-  background-color: #00ffff;
-  color: #000;
-  font-weight: 700;
-  padding: 0.7rem 1.6rem;
-  border-radius: 6px;
-  text-decoration: none;
+p {
   font-size: 1.1rem;
-  display: inline-block;
-  cursor: pointer;
-  border: none;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-input, select {
-  width: 100%;
-  max-width: 350px;
-  padding: 0.6rem;
-  margin: 0.3rem 0;
-  border-radius: 5px;
+a.btn, button {
+  background-color: #238636;
+  color: white;
   border: none;
+  padding: 12px 20px;
+  margin-top: 20px;
   font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-block;
+  text-decoration: none;
+}
+
+a.btn:hover, button:hover {
+  background-color: #2ea043;
+}
+
+input, textarea {
+  width: 90%;
+  max-width: 500px;
+  padding: 10px;
+  margin: 10px 0;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
 }
 
 footer {
+  background-color: #161b22;
+  padding: 20px;
   text-align: center;
-  padding: 1.2rem;
-  background-color: #111;
-  color: #666;
+  color: #8b949e;
+  margin-top: 40px;
   font-size: 0.9rem;
-  margin-top: 3rem;
 }
