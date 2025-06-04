@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invite - Omex Bot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Omex</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="commands.html">Commands</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="invite.html" class="active">Invite</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>Invite Omex Bot</h2>
+    <p>Want to add Omex to your Discord server? Click the button below to invite the bot with the necessary permissions.</p>
+    <!-- Replace YOUR_CLIENT_ID with your bot's actual client ID -->
+    <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot%20applications.commands&permissions=8" target="_blank" class="btn">Invite Omex</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Omex Bot • Developer: Blood • Founder: Ken</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>
