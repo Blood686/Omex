@@ -2,105 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omex Premium</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0e0e0e;
-      color: #fff;
-    }
-
-    /* Navbar */
-    nav {
-      background-color: #111;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    nav .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #00ffff;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav ul li a {
-      color: #ccc;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav ul li a:hover, nav ul li a.active {
-      color: #00ffff;
-    }
-
-    /* Form Container */
-    .container {
-      max-width: 600px;
-      margin: 3rem auto;
-      background-color: #1a1a1a;
-      padding: 2rem;
-      border-radius: 10px;
-    }
-
-    h2 {
-      color: #00ffff;
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      margin-top: 1rem;
-    }
-
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 0.5rem;
-      border-radius: 5px;
-      border: none;
-      font-size: 1rem;
-    }
-
-    button {
-      background-color: #00ffff;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    #status {
-      text-align: center;
-      margin-top: 1rem;
-      color: #00ff99;
-      font-weight: bold;
-    }
-
-    footer {
-      margin-top: 4rem;
-      padding: 1rem;
-      background-color: #111;
-      text-align: center;
-      color: #aaa;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omex Bot - Premium</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navbar -->
   <nav>
     <div class="logo">Omex</div>
     <ul>
@@ -112,64 +18,73 @@
     </ul>
   </nav>
 
-  <!-- Premium Form -->
-  <div class="container">
-    <h2>Request Omex Premium</h2>
-    <p>Fill out this form to request premium features for your server.</p>
-
+  <section class="hero">
+    <h1>Get Omex Premium</h1>
+    <p>Unlock premium features by filling the form and making a payment.</p>
     <form id="premiumForm">
-      <label for="username">Discord Username (with #):</label>
-      <input type="text" id="username" name="username" required />
-
-      <label for="servername">Server Name:</label>
-      <input type="text" id="servername" name="servername" required />
-
-      <label for="reason">Why do you want Premium?</label>
-      <textarea id="reason" name="reason" rows="4" required></textarea>
-
-      <button type="submit">Submit Request</button>
+      <input type="text" id="name" placeholder="Your Name" required><br><br>
+      <input type="email" id="email" placeholder="Your Email" required><br><br>
+      <input type="text" id="discord" placeholder="Discord Username#0000" required><br><br>
+      <select id="plan" required>
+        <option value="" disabled selected>Select a plan</option>
+        <option value="monthly">Monthly - ₹99</option>
+        <option value="lifetime">Lifetime - ₹249</option>
+      </select><br><br>
+      <button type="button" onclick="payNow()">Pay Now</button>
     </form>
-
-    <div id="status"></div>
-  </div>
+  </section>
 
   <footer>
-    © 2025 Omex Bot • Founder: Ken • Developer: Blood
+    &copy; 2025 Omex Bot • Founder: Ken • Developer: Blood
   </footer>
 
-  <!-- JavaScript to send to Discord webhook -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
-    document.getElementById("premiumForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
+    function payNow() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const discord = document.getElementById('discord').value.trim();
+      const plan = document.getElementById('plan').value;
 
-      const username = document.getElementById("username").value;
-      const servername = document.getElementById("servername").value;
-      const reason = document.getElementById("reason").value;
+      if (!name || !email || !discord || !plan) {
+        alert('Please fill all fields and select a plan.');
+        return;
+      }
 
-      const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE"; // 🔁 REPLACE THIS!
+      const amount = plan === 'monthly' ? 9900 : 24900;
 
-      const payload = {
-        content: `📬 **New Premium Request!**\n👤 **User:** ${username}\n🛡️ **Server:** ${servername}\n📝 **Reason:** ${reason}`
+      const options = {
+        key: "rzp_test_xxxxxxxx", // Replace with your Razorpay API Key
+        amount: amount,
+        currency: "INR",
+        name: "Omex Premium",
+        description: "Purchase Premium Plan",
+        handler: function (response) {
+          fetch("https://discord.com/api/webhooks/xxxxxx", { // Replace with your webhook URL
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              content: `**New Premium Purchase**\nName: ${name}\nEmail: ${email}\nDiscord: ${discord}\nPlan: ${plan}\nPayment ID: ${response.razorpay_payment_id}`
+            })
+          }).then(() => {
+            alert("Payment successful and form submitted!");
+            document.getElementById('premiumForm').reset();
+          }).catch(() => {
+            alert("Payment succeeded but failed to send data to Discord.");
+          });
+        },
+        prefill: {
+          name: name,
+          email: email,
+        },
+        theme: {
+          color: "#00ffff"
+        }
       };
 
-      try {
-        const res = await fetch(webhookURL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          document.getElementById("status").innerText = "✅ Request sent! We’ll contact you soon.";
-          document.getElementById("premiumForm").reset();
-        } else {
-          document.getElementById("status").innerText = "❌ Failed to send. Try again.";
-        }
-      } catch (err) {
-        document.getElementById("status").innerText = "❌ Error sending request.";
-      }
-    });
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
   </script>
-
 </body>
 </html>
