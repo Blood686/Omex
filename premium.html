@@ -1,62 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Premium - Omex</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Premium</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <h1>Omex</h1>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="commands.html">Commands</a></li>
-      <li><a href="invite.html">Invite</a></li>
-      <li><a href="premium.html">Premium</a></li>
-      <li><a href="support.html">Support</a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav>
+      <h1>Omex</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="commands.html">Commands</a></li>
+        <li><a href="invite.html">Invite</a></li>
+        <li><a href="premium.html">Premium</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
-    <h2>Request Premium Access</h2>
-    <form id="premiumForm">
-      <label>Discord Username</label><br>
-      <input type="text" id="username" required><br><br>
-      
-      <label>Server ID</label><br>
-      <input type="text" id="serverId" required><br><br>
-      
-      <label>Why do you want Premium?</label><br>
-      <textarea id="reason" required></textarea><br><br>
-
-      <button type="submit">Submit</button>
+    <h2>Request Premium</h2>
+    <form action="#">
+      <label>Discord Username:</label>
+      <input type="text" placeholder="e.g. Ken#1234" required><br>
+      <label>Server ID:</label>
+      <input type="text" placeholder="1234567890" required><br>
+      <label>Why Premium?</label>
+      <textarea placeholder="Tell us why you want premium..." required></textarea><br>
+      <button class="glass-btn" type="submit">Submit</button>
     </form>
-    <p id="confirmation" style="color: green; display: none;">Submitted! We’ll contact you soon.</p>
   </main>
   <footer>
     <p>&copy; 2025 Omex</p>
   </footer>
-
-  <script>
-    document.getElementById('premiumForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const webhook = "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"; // replace this!
-      const username = document.getElementById("username").value;
-      const serverId = document.getElementById("serverId").value;
-      const reason = document.getElementById("reason").value;
-
-      fetch(webhook, {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          content: `📥 New Premium Request\n**Username:** ${username}\n**Server ID:** ${serverId}\n**Reason:** ${reason}`
-        })
-      }).then(() => {
-        document.getElementById("confirmation").style.display = "block";
-        document.getElementById("premiumForm").reset();
-      });
-    });
-  </script>
 </body>
 </html>
