@@ -1,42 +1,112 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Omex Discord Bot</title>
+  <title>Omex - Discord Bot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: sans-serif; padding: 2rem; background: #111; color: #eee; }
-    a { color: #00ffcc; }
-    .button {
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: #0d0d0d;
+      color: white;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.25rem;
+      color: #ddd;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
       background: #00ffcc;
-      color: #111;
-      padding: 0.5em 1em;
+      color: #000;
+      font-weight: bold;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #00ccaa;
+    }
+    section {
+      max-width: 960px;
+      margin: auto;
+      padding: 3rem 1.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+      border-left: 5px solid #00ffcc;
+      padding-left: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      background: #1a1a1a;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    a {
+      color: #00ffcc;
     }
   </style>
 </head>
 <body>
-  <h1>🤖 Omex Discord Bot</h1>
-  <p>Omex is a free and powerful Discord bot for managing your server (ABN, moderation, fun, and more!).</p>
 
-  <h2>🌟 Features</h2>
-  <ul>
-    <li>ABN tools (customized)</li>
-    <li>Moderation (ban, kick, mute)</li>
-    <li>Logging system</li>
-    <li>Fun commands</li>
-  </ul>
+  <header>
+    <h1>Omex Bot</h1>
+    <p>The ultimate free Discord bot for ABN, moderation, and more.</p>
+    <a href="YOUR_INVITE_LINK" class="btn" target="_blank">Invite Omex</a>
+  </header>
 
-  <h2>📥 Invite Omex</h2>
-  <a class="button" href="YOUR_BOT_INVITE_LINK" target="_blank">Invite to Your Server</a>
+  <section>
+    <h2>🚀 Features</h2>
+    <ul>
+      <li><strong>ABN System</strong> - Custom automated bot notifications</li>
+      <li><strong>Moderation</strong> - Ban, kick, mute, warnings</li>
+      <li><strong>Logging</strong> - Track edits, joins, deletes</li>
+      <li><strong>Fun Commands</strong> - Memes, 8ball, random facts</li>
+    </ul>
+  </section>
 
-  <h2>📚 Commands</h2>
-  <p>Use `/help` in Discord to see the full list of commands.</p>
+  <section>
+    <h2>📜 Popular Commands</h2>
+    <ul>
+      <li><code>/help</code> - Shows all commands</li>
+      <li><code>/ban @user</code> - Ban a user</li>
+      <li><code>/mute @user 10m</code> - Temporary mute</li>
+      <li><code>/abn add [msg]</code> - Add a new ABN alert</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💬 Need Help?</h2>
+    <p>Join our <a href="https://discord.gg/YOURSUPPORTSERVER" target="_blank">support server</a> for setup help or to report issues.</p>
+  </section>
 
   <footer>
-    <p>© 2025 Omex Bot. Built with ❤️ by YourName.</p>
+    <p>© 2025 Omex Bot • Made with ❤️ by YourName</p>
   </footer>
+
 </body>
 </html>
