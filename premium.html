@@ -2,89 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Omex Bot - Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium - Omex</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
-    <div class="logo">Omex</div>
+    <h1>Omex</h1>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="commands.html">Commands</a></li>
-      <li><a href="support.html">Support</a></li>
       <li><a href="invite.html">Invite</a></li>
-      <li><a class="active" href="premium.html">Premium</a></li>
+      <li><a href="premium.html">Premium</a></li>
+      <li><a href="support.html">Support</a></li>
     </ul>
   </nav>
-
-  <section class="hero">
-    <h1>Get Omex Premium</h1>
-    <p>Unlock premium features by filling the form and making a payment.</p>
+  <main>
+    <h2>Request Premium Access</h2>
     <form id="premiumForm">
-      <input type="text" id="name" placeholder="Your Name" required><br><br>
-      <input type="email" id="email" placeholder="Your Email" required><br><br>
-      <input type="text" id="discord" placeholder="Discord Username#0000" required><br><br>
-      <select id="plan" required>
-        <option value="" disabled selected>Select a plan</option>
-        <option value="monthly">Monthly - ₹99</option>
-        <option value="lifetime">Lifetime - ₹249</option>
-      </select><br><br>
-      <button type="button" onclick="payNow()">Pay Now</button>
-    </form>
-  </section>
+      <label>Discord Username</label><br>
+      <input type="text" id="username" required><br><br>
+      
+      <label>Server ID</label><br>
+      <input type="text" id="serverId" required><br><br>
+      
+      <label>Why do you want Premium?</label><br>
+      <textarea id="reason" required></textarea><br><br>
 
+      <button type="submit">Submit</button>
+    </form>
+    <p id="confirmation" style="color: green; display: none;">Submitted! We’ll contact you soon.</p>
+  </main>
   <footer>
-    &copy; 2025 Omex Bot • Founder: Ken • Developer: Blood
+    <p>&copy; 2025 Omex</p>
   </footer>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
-    function payNow() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const discord = document.getElementById('discord').value.trim();
-      const plan = document.getElementById('plan').value;
+    document.getElementById('premiumForm').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-      if (!name || !email || !discord || !plan) {
-        alert('Please fill all fields and select a plan.');
-        return;
-      }
+      const webhook = "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"; // replace this!
+      const username = document.getElementById("username").value;
+      const serverId = document.getElementById("serverId").value;
+      const reason = document.getElementById("reason").value;
 
-      const amount = plan === 'monthly' ? 9900 : 24900;
-
-      const options = {
-        key: "rzp_test_xxxxxxxx", // Replace with your Razorpay API Key
-        amount: amount,
-        currency: "INR",
-        name: "Omex Premium",
-        description: "Purchase Premium Plan",
-        handler: function (response) {
-          fetch("https://discord.com/api/webhooks/xxxxxx", { // Replace with your webhook URL
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              content: `**New Premium Purchase**\nName: ${name}\nEmail: ${email}\nDiscord: ${discord}\nPlan: ${plan}\nPayment ID: ${response.razorpay_payment_id}`
-            })
-          }).then(() => {
-            alert("Payment successful and form submitted!");
-            document.getElementById('premiumForm').reset();
-          }).catch(() => {
-            alert("Payment succeeded but failed to send data to Discord.");
-          });
-        },
-        prefill: {
-          name: name,
-          email: email,
-        },
-        theme: {
-          color: "#00ffff"
-        }
-      };
-
-      const rzp = new Razorpay(options);
-      rzp.open();
-    }
+      fetch(webhook, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content: `📥 New Premium Request\n**Username:** ${username}\n**Server ID:** ${serverId}\n**Reason:** ${reason}`
+        })
+      }).then(() => {
+        document.getElementById("confirmation").style.display = "block";
+        document.getElementById("premiumForm").reset();
+      });
+    });
   </script>
 </body>
 </html>
