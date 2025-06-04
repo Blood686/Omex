@@ -3,15 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Premium Request - Omex Bot</title>
+  <title>Omex Premium</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: white;
+    }
+    nav {
+      background: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #00ffff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav ul li a.active, nav ul li a:hover {
+      color: #00ffff;
+    }
+    section {
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      background-color: #1b1b1b;
+      border-radius: 8px;
+      margin-top: 3rem;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+    }
+    button {
+      background: #00ffff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
 
   <nav>
     <div class="logo">Omex</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul id="menu">
+    <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="commands.html">Commands</a></li>
       <li><a href="support.html">Support</a></li>
@@ -22,58 +88,59 @@
 
   <section>
     <h2>Request Premium Access</h2>
-    <p>Fill out the form below to request Omex Premium. We'll review and get back to you soon via Discord.</p>
+    <p>Fill this form to apply for Omex Premium. We'll review and respond on Discord.</p>
 
     <form id="premiumForm">
-      <label>Discord Username (with #):</label><br />
-      <input type="text" name="username" required /><br /><br />
+      <label for="username">Your Discord Username (with #):</label>
+      <input type="text" id="username" name="username" required>
 
-      <label>Server Name:</label><br />
-      <input type="text" name="servername" required /><br /><br />
+      <label for="servername">Your Server Name:</label>
+      <input type="text" id="servername" name="servername" required>
 
-      <label>Why do you want Premium?</label><br />
-      <textarea name="reason" rows="4" required></textarea><br /><br />
+      <label for="reason">Why do you want Premium?</label>
+      <textarea id="reason" name="reason" rows="4" required></textarea>
 
-      <button type="submit" class="btn">Submit Request</button>
+      <button type="submit">Submit</button>
     </form>
 
-    <div id="status" style="margin-top: 1rem; color: #00ffcc;"></div>
+    <div id="status"></div>
   </section>
 
   <footer>
-    <p>© 2025 Omex Bot • Developer: Blood • Founder: Ken</p>
+    &copy; 2025 Omex Bot • Founder: Ken • Developer: Blood
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('show');
-    }
-
-    document.getElementById("premiumForm").addEventListener("submit", async function(e) {
+    document.getElementById('premiumForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const form = e.target;
-      const username = form.username.value;
-      const servername = form.servername.value;
-      const reason = form.reason.value;
+      const username = document.getElementById('username').value;
+      const servername = document.getElementById('servername').value;
+      const reason = document.getElementById('reason').value;
 
-      const webhookURL = "YOUR_WEBHOOK_URL_HERE"; // replace this
+      const webhook = "YOUR_WEBHOOK_URL_HERE"; // <-- Replace this with your webhook
 
       const payload = {
-        content: `📬 **New Premium Request**\n👤 **User:** ${username}\n🛡️ **Server:** ${servername}\n📝 **Reason:** ${reason}`
+        content: `📨 **New Premium Request!**\n**User:** ${username}\n**Server:** ${servername}\n**Reason:** ${reason}`
       };
 
-      const response = await fetch(webhookURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
+      try {
+        const res = await fetch(webhook, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
 
-      if (response.ok) {
-        document.getElementById("status").innerText = "✅ Request sent! We'll contact you on Discord.";
-        form.reset();
-      } else {
-        document.getElementById("status").innerText = "❌ Something went wrong. Try again.";
+        if (res.ok) {
+          document.getElementById('status').innerText = "✅ Request sent! We'll contact you on Discord.";
+          document.getElementById('premiumForm').reset();
+        } else {
+          document.getElementById('status').innerText = "❌ Error sending request. Try again.";
+        }
+      } catch (err) {
+        document.getElementById('status').innerText = "❌ Something went wrong.";
       }
     });
   </script>
