@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Request - Omex Bot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Omex</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="commands.html">Commands</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="invite.html">Invite</a></li>
+      <li><a href="premium.html" class="active">Premium</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>Request Premium Access</h2>
+    <p>Fill out the form below to request Omex Premium. We'll review and get back to you soon via Discord.</p>
+
+    <form id="premiumForm">
+      <label>Discord Username (with #):</label><br />
+      <input type="text" name="username" required /><br /><br />
+
+      <label>Server Name:</label><br />
+      <input type="text" name="servername" required /><br /><br />
+
+      <label>Why do you want Premium?</label><br />
+      <textarea name="reason" rows="4" required></textarea><br /><br />
+
+      <button type="submit" class="btn">Submit Request</button>
+    </form>
+
+    <div id="status" style="margin-top: 1rem; color: #00ffcc;"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 Omex Bot • Developer: Blood • Founder: Ken</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+
+    document.getElementById("premiumForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const username = form.username.value;
+      const servername = form.servername.value;
+      const reason = form.reason.value;
+
+      const webhookURL = "YOUR_WEBHOOK_URL_HERE"; // replace this
+
+      const payload = {
+        content: `📬 **New Premium Request**\n👤 **User:** ${username}\n🛡️ **Server:** ${servername}\n📝 **Reason:** ${reason}`
+      };
+
+      const response = await fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        document.getElementById("status").innerText = "✅ Request sent! We'll contact you on Discord.";
+        form.reset();
+      } else {
+        document.getElementById("status").innerText = "❌ Something went wrong. Try again.";
+      }
+    });
+  </script>
+
+</body>
+</html>
