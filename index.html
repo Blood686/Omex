@@ -1,177 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Omex - Free Discord Bot for Server Management</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f111a, #1c1f33);
-      color: #eee;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 3rem;
-      background-color: #161826;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav .logo {
-      font-weight: 700;
-      font-size: 1.75rem;
-      color: #ff5555;
-      letter-spacing: 2px;
-      cursor: pointer;
-    }
-    nav ul {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    nav ul li a {
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.3rem 0.5rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      background-color: #ff5555;
-      color: white;
-    }
-
-    /* Hero Section */
-    .hero {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 4rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 4rem;
-    }
-    .hero-content {
-      max-width: 600px;
-    }
-    .hero-content h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #ff5555;
-      line-height: 1.1;
-      text-shadow: 0 0 10px #ff5555bb;
-    }
-    .hero-content p {
-      font-size: 1.25rem;
-      color: #ddd;
-      margin-bottom: 2rem;
-      line-height: 1.4;
-    }
-    .btn-primary {
-      background-color: #ff5555;
-      color: white;
-      padding: 0.85rem 2.25rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 40px;
-      font-size: 1.15rem;
-      cursor: pointer;
-      box-shadow: 0 8px 30px #ff5555aa;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      display: inline-block;
-    }
-    .btn-primary:hover {
-      background-color: #ff7a7a;
-      box-shadow: 0 10px 40px #ff7a7aaa;
-    }
-
-    /* GIF Container */
-    .hero-gif {
-      max-width: 450px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 0 30px #ff5555aa;
-      transition: transform 0.3s ease;
-    }
-    .hero-gif:hover {
-      transform: scale(1.05);
-    }
-    .hero-gif img {
-      width: 100%;
-      display: block;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-      }
-      .hero-content, .hero-gif {
-        max-width: 100%;
-      }
-      .hero-content h1 {
-        font-size: 2.8rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omex - Home</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
-    <div class="logo">Omex</div>
+    <h1>Omex</h1>
     <ul>
-      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="commands.html">Commands</a></li>
-      <li><a href="support.html">Support</a></li>
       <li><a href="invite.html">Invite</a></li>
       <li><a href="premium.html">Premium</a></li>
+      <li><a href="support.html">Support</a></li>
     </ul>
   </nav>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Omex — Your Free Discord Server Manager</h1>
-      <p>Manage bans, automations, roles, and more easily with Omex — trusted and powerful Discord bot for server admins.</p>
-      <a href="invite.html" class="btn-primary" role="button" tabindex="0">Invite Omex Now</a>
-    </div>
-
-    <div class="hero-gif" role="img" aria-label="Omex bot animated demonstration GIF">
-      <img
-        src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWJ6N2d0dXE1MDI5emxscXJvdDMyNGJwOGh6M3RxaWhhbXZyYnRmNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CY3A9zOlZR8uhFbeok/giphy.gif"
-        alt="Omex Bot animated demonstration"
-        loading="lazy"
-      />
-    </div>
-  </section>
+  <main>
+    <h2>The Ultimate Free Discord Bot</h2>
+    <p>Manage your server with power and simplicity.</p>
+    <a href="invite.html" class="btn">Invite Omex</a>
+  </main>
+  <footer>
+    <p>&copy; 2025 Omex. Founder: Ken | Developer: Blood</p>
+  </footer>
 </body>
 </html>
