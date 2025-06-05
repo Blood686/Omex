@@ -1,22 +1,140 @@
- <header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omex - Your Free Discord Server Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --primary-color: #ff4c4c;
+      --bg-color-dark: #0f0f1b;
+      --bg-color-light: #ffffff;
+      --text-color-dark: #ffffff;
+      --text-color-light: #111111;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: var(--bg-color-dark);
+      color: var(--text-color-dark);
+      transition: all 0.3s ease-in-out;
+    }
+    body.light-mode {
+      background: var(--bg-color-light);
+      color: var(--text-color-light);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--primary-color);
+    }
+    .toggle-theme {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.2s ease-in-out;
+    }
+    .toggle-theme:hover {
+      transform: scale(1.05);
+    }
+    main {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      color: var(--primary-color);
+      text-shadow: 0 0 15px rgba(255, 76, 76, 0.8);
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+    .invite-btn {
+      display: inline-block;
+      background: var(--primary-color);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      color: white;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 76, 76, 0.8);
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .invite-btn:hover {
+      background: #ff3b3b;
+      transform: scale(1.05);
+    }
+    .gif-preview {
+      width: 300px;
+      border-radius: 12px;
+      margin-top: 2rem;
+      box-shadow: 0 0 20px rgba(255, 76, 76, 0.4);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Omex</h1>
     <nav>
-      <h1 style="color:#ff4d4d;">Omex</h1>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="commands.html">Commands</a></li>
-        <li><a href="support.html">Support</a></li>
         <li><a href="invite.html">Invite</a></li>
         <li><a href="premium.html">Premium</a></li>
+        <li><a href="support.html">Support</a></li>
       </ul>
     </nav>
+    <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
   </header>
-  <main class="hero">
-    <h2 style="color:#ff4d4d; text-shadow: 0 0 10px #ff4d4d;">Omex — Your Free Discord Server Manager</h2>
+  <main>
+    <h1>Omex — Your Free Discord Server Manager</h1>
     <p>Manage bans, automations, roles, and more easily with Omex — trusted and powerful Discord bot for server admins.</p>
-    <a class="invite-btn" href="invite.html">Invite Omex Now</a>
-    <br><br>
-    <img src="https://media.tenor.com/yheo1GGu3FwAAAAC/dragon-ball-z.gif" width="200" style="border-radius: 12px;">
+    <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8">Invite Omex Now</a>
+    <img class="gif-preview" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXg3ZWg4aW9xdXRiMWh3cm11d2Z5cWdsNzU2ZXEyaXZxa2M0ZWY2bSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qgQUggAC3Pfv687qPC/giphy.gif" alt="Omex Preview GIF">
   </main>
   <footer>
     <p>&copy; 2025 Omex. Built by Blood. Founder: Ken.</p>
   </footer>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+</body>
+</html>
