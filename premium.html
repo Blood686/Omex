@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium - Omex</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium | Omex</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">Omex</h1>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="commands.html">Commands</a></li>
-        <li><a href="invite.html">Invite</a></li>
-        <li><a href="premium.html">Premium</a></li>
-        <li><a href="support.html">Support</a></li>
-      </ul>
-      <button id="theme-toggle">🌙</button>
-    </nav>
+<body class="bg-black text-white">
+
+  <!-- Navbar (same as above) -->
+  <header class="bg-black text-white shadow-lg shadow-cyan-500/20">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-[#00f0ff] hover:text-cyan-400 transition">Omex</a>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="index.html" class="neon-nav-link">Home</a>
+        <a href="invite.html" class="neon-nav-link">Invite</a>
+        <a href="commands.html" class="neon-nav-link">Commands</a>
+        <a href="premium.html" class="neon-nav-link font-bold underline">Premium</a>
+        <a href="support.html" class="neon-nav-link">Support</a>
+      </nav>
+    </div>
   </header>
-  <main class="main-content">
-    <h2>Request Premium Access</h2>
-    <form class="premium-form" onsubmit="sendToWebhook(event)">
-      <input type="text" placeholder="Your Discord Username" required><br>
-      <input type="text" placeholder="Your Server ID" required><br>
-      <textarea placeholder="Why do you want premium?" required></textarea><br>
-      <button class="btn-glow" type="submit">Submit</button>
-    </form>
-  </main>
-  <footer>
-    <p>&copy; 2025 Omex</p>
-  </footer>
-  <script>
-    document.getElementById('theme-toggle').onclick = () => {
-      document.body.classList.toggle('dark-mode');
-    };
-    function sendToWebhook(e) {
-      e.preventDefault();
-      alert('Submitted! Webhook integration coming soon.');
+
+  <!-- Premium Content -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center p-8">
+    <h1 class="text-4xl font-bold text-[#00f0ff] mb-4">Omex Premium</h1>
+    <p class="text-blue-200 mb-6 max-w-xl">Unlock exclusive commands, priority support, and extra perks for your server. Support Omex development and get rewarded.</p>
+    <a href="https://your-premium-link.com"
+       class="px-6 py-2 font-semibold text-[#00f0ff] border-2 border-[#00f0ff] rounded-full shadow shadow-cyan-500/20 hover:bg-[#00f0ff22] hover:shadow-cyan-400/40 transition duration-300">
+      Upgrade Now
+    </a>
+  </section>
+
+  <style>
+    .neon-nav-link {
+      color: #00f0ff;
+      text-shadow: 0 0 5px #00f0ff66;
+      transition: all 0.3s ease;
     }
-  </script>
+    .neon-nav-link:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff88;
+    }
+  </style>
+
 </body>
 </html>
