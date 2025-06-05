@@ -78,7 +78,15 @@
     }
     p {
       font-size: 1.1rem;
-      margin: 1rem 0;
+      margin: 1rem 0 2rem;
+    }
+    /* New container for gif and button */
+    .media-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: center;
     }
     .invite-btn {
       display: inline-block;
@@ -92,6 +100,7 @@
       text-decoration: none;
       box-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--secondary-color);
       transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
     }
     .invite-btn:hover {
       background: var(--secondary-color);
@@ -100,7 +109,6 @@
     .gif-preview {
       width: 300px;
       border-radius: 12px;
-      margin-top: 2rem;
       box-shadow: 0 0 25px var(--glow-color);
     }
     footer {
@@ -128,8 +136,14 @@
   <main>
     <h1>Omex — Your Free Discord Server Manager</h1>
     <p>Manage bans, automations, roles, and more with Omex — a powerful and trusted Discord bot for server admins.</p>
-    <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8">Invite Omex Now</a>
-    <img class="gif-preview" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="Omex Preview GIF">
+    <div class="media-container">
+      <img
+        class="gif-preview"
+        src="https://media.giphy.com/media/6yyIrL4JczqfmFRHCl/giphy.gif"
+        alt="Vegeta Dark Anime GIF"
+      >
+      <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8">Invite Omex Now</a>
+    </div>
   </main>
   <footer>
     <p>&copy; 2025 Omex. Built by Blood. Founder: Ken.</p>
