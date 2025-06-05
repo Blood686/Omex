@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Omex - Invite</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invite Omex</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -20,22 +20,19 @@
       <button id="theme-toggle">🌙</button>
     </nav>
   </header>
-
-  <main>
-    <section class="invite-section">
-      <h2>Invite Omex to Your Server</h2>
-      <p>Click below to add Omex with full features and moderation power.</p>
-      <a class="glow-btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" width="20" style="vertical-align: middle; margin-right: 10px;">
-        Invite Omex
-      </a>
-    </section>
+  <main class="main-content">
+    <h2>Invite Omex to Your Server</h2>
+    <a class="btn-glow" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8">
+      Invite Omex
+    </a>
   </main>
-
   <footer>
-    <p>&copy; 2025 Omex | Founder: Ken | Developer: Blood</p>
+    <p>&copy; 2025 Omex</p>
   </footer>
-
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('theme-toggle').onclick = () => {
+      document.body.classList.toggle('dark-mode');
+    };
+  </script>
 </body>
 </html>
