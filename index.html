@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Omex - Your Free Discord Server Manager</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <style>
     :root {
-      --primary-color: #ff4c4c;
-      --bg-color-dark: #0f0f1b;
+      --primary-color: #00bfff; /* Chidori blue */
+      --secondary-color: #1e90ff;
+      --glow-color: rgba(30, 144, 255, 0.8);
+      --bg-color-dark: #0a0a0a;
       --bg-color-light: #ffffff;
       --text-color-dark: #ffffff;
       --text-color-light: #111111;
@@ -34,9 +36,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0, 191, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 191, 255, 0.2);
     }
     nav ul {
       list-style: none;
@@ -60,6 +62,7 @@
       color: white;
       font-weight: bold;
       transition: transform 0.2s ease-in-out;
+      box-shadow: 0 0 12px var(--glow-color);
     }
     .toggle-theme:hover {
       transform: scale(1.05);
@@ -71,7 +74,7 @@
     h1 {
       font-size: 3rem;
       color: var(--primary-color);
-      text-shadow: 0 0 15px rgba(255, 76, 76, 0.8);
+      text-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--secondary-color);
     }
     p {
       font-size: 1.1rem;
@@ -86,19 +89,19 @@
       border-radius: 30px;
       font-size: 1rem;
       font-weight: bold;
-      box-shadow: 0 0 15px rgba(255, 76, 76, 0.8);
       text-decoration: none;
+      box-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--secondary-color);
       transition: background 0.3s, transform 0.3s;
     }
     .invite-btn:hover {
-      background: #ff3b3b;
+      background: var(--secondary-color);
       transform: scale(1.05);
     }
     .gif-preview {
       width: 300px;
       border-radius: 12px;
       margin-top: 2rem;
-      box-shadow: 0 0 20px rgba(255, 76, 76, 0.4);
+      box-shadow: 0 0 25px var(--glow-color);
     }
     footer {
       text-align: center;
@@ -124,9 +127,9 @@
   </header>
   <main>
     <h1>Omex — Your Free Discord Server Manager</h1>
-    <p>Manage bans, automations, roles, and more easily with Omex — trusted and powerful Discord bot for server admins.</p>
+    <p>Manage bans, automations, roles, and more with Omex — a powerful and trusted Discord bot for server admins.</p>
     <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8">Invite Omex Now</a>
-    <img class="gif-preview" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXg3ZWg4aW9xdXRiMWh3cm11d2Z5cWdsNzU2ZXEyaXZxa2M0ZWY2bSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qgQUggAC3Pfv687qPC/giphy.gif" alt="Omex Preview GIF">
+    <img class="gif-preview" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" alt="Omex Preview GIF">
   </main>
   <footer>
     <p>&copy; 2025 Omex. Built by Blood. Founder: Ken.</p>
