@@ -3,42 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Omex - Commands</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Commands | Omex</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">Omex</h1>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="commands.html">Commands</a></li>
-        <li><a href="invite.html">Invite</a></li>
-        <li><a href="premium.html">Premium</a></li>
-        <li><a href="support.html">Support</a></li>
-      </ul>
-      <button id="theme-toggle">🌙</button>
-    </nav>
+<body class="bg-black text-white">
+
+  <!-- Navbar -->
+  <header class="bg-black text-white shadow-lg shadow-cyan-500/20">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-[#00f0ff] hover:text-cyan-400 transition">Omex</a>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="index.html" class="neon-nav-link">Home</a>
+        <a href="invite.html" class="neon-nav-link">Invite</a>
+        <a href="commands.html" class="neon-nav-link font-bold underline">Commands</a>
+        <a href="premium.html" class="neon-nav-link">Premium</a>
+        <a href="support.html" class="neon-nav-link">Support</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="commands-section">
-      <h2>Available Commands</h2>
-      <div class="command-card">
-        <p><strong>/ban</strong> — Ban a user from the server</p>
-        <p><strong>/kick</strong> — Kick a user</p>
-        <p><strong>/mute</strong> — Mute a member</p>
-        <p><strong>/warn</strong> — Warn a user</p>
-        <p><strong>/help</strong> — Show help menu</p>
-        <p><strong>/userinfo</strong> — Get info about a user</p>
+  <!-- Commands Section -->
+  <section class="min-h-screen p-8 text-center">
+    <h1 class="text-4xl font-bold text-[#00f0ff] mb-4">Omex Commands</h1>
+    <p class="text-blue-200 mb-8">Explore the list of commands available in Omex.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <div class="bg-[#0a0a0a] border-2 border-[#00f0ff] p-6 rounded-xl shadow shadow-cyan-500/20">
+        <h2 class="text-xl font-bold text-[#00f0ff]">/ban</h2>
+        <p class="text-blue-100">Ban a user from the server.</p>
       </div>
-    </section>
-  </main>
+      <div class="bg-[#0a0a0a] border-2 border-[#00f0ff] p-6 rounded-xl shadow shadow-cyan-500/20">
+        <h2 class="text-xl font-bold text-[#00f0ff]">/kick</h2>
+        <p class="text-blue-100">Kick a user from the server.</p>
+      </div>
+      <div class="bg-[#0a0a0a] border-2 border-[#00f0ff] p-6 rounded-xl shadow shadow-cyan-500/20">
+        <h2 class="text-xl font-bold text-[#00f0ff]">/userinfo</h2>
+        <p class="text-blue-100">Check info about a user.</p>
+      </div>
+      <div class="bg-[#0a0a0a] border-2 border-[#00f0ff] p-6 rounded-xl shadow shadow-cyan-500/20">
+        <h2 class="text-xl font-bold text-[#00f0ff]">/help</h2>
+        <p class="text-blue-100">View all bot commands.</p>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Omex | Founder: Ken | Developer: Blood</p>
-  </footer>
+  <style>
+    .neon-nav-link {
+      color: #00f0ff;
+      text-shadow: 0 0 5px #00f0ff66;
+      transition: all 0.3s ease;
+    }
+    .neon-nav-link:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff88;
+    }
+  </style>
 
-  <script src="script.js"></script>
 </body>
 </html>
