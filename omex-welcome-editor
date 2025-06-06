@@ -15,14 +15,13 @@
       --input-bg: #111;
       --input-border: #00bfff;
       --shadow-glow: 0 0 20px var(--glow-color);
-      --nav-bg: #111;
-      --nav-link-color: var(--text-color-dark);
-      --nav-link-hover: var(--primary-color);
     }
+
     * {
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
+
     body {
       margin: 0;
       background: var(--bg-color-dark);
@@ -33,10 +32,10 @@
       flex-direction: column;
       align-items: center;
     }
-    /* NAVBAR */
+
     nav {
       width: 100%;
-      background: var(--nav-bg);
+      background: #111;
       box-shadow: 0 0 20px var(--glow-color);
       border-radius: 12px;
       margin-bottom: 2rem;
@@ -45,53 +44,56 @@
       align-items: center;
       justify-content: space-between;
       max-width: 1000px;
-      height: 50px;
+      height: 60px;
     }
+
     nav .logo {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--primary-color);
       text-shadow: 0 0 10px var(--glow-color);
-      user-select: none;
     }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 1.2rem;
       margin: 0;
       padding: 0;
     }
+
     nav ul li a {
-      color: var(--nav-link-color);
+      color: var(--text-color-dark);
       text-decoration: none;
       font-weight: 600;
-      padding: 6px 8px;
+      padding: 6px 12px;
       border-radius: 6px;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      display: inline-block;
+      transition: 0.3s ease;
+      background-color: transparent;
     }
+
     nav ul li a:hover,
     nav ul li a.active {
-      color: var(--nav-link-hover);
+      color: #00bfff;
       background-color: rgba(0, 191, 255, 0.15);
-      box-shadow: 0 0 8px var(--glow-color);
+      box-shadow: 0 0 10px var(--glow-color);
     }
 
     h1 {
       color: var(--primary-color);
-      text-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--secondary-color);
-      margin-bottom: 2rem;
-      user-select: none;
+      text-shadow: 0 0 25px var(--glow-color);
+      margin-bottom: 1.5rem;
     }
+
     .container {
       display: flex;
+      flex-direction: column;
       gap: 2rem;
       width: 100%;
       max-width: 1000px;
-      min-height: 400px;
     }
+
     form {
-      flex: 1;
       background: #111;
       padding: 2rem;
       border-radius: 12px;
@@ -99,13 +101,12 @@
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
-      transition: box-shadow 0.3s ease;
     }
+
     label {
       font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
     }
+
     input[type="text"],
     textarea {
       width: 100%;
@@ -116,96 +117,68 @@
       padding: 10px 12px;
       font-size: 1rem;
       resize: vertical;
-      transition: border-color 0.3s ease;
-      box-shadow: inset 0 0 8px rgba(0, 191, 255, 0.3);
     }
-    input[type="text"]:focus,
-    textarea:focus {
-      border-color: var(--secondary-color);
-      outline: none;
-      box-shadow: 0 0 12px var(--glow-color);
-    }
+
     button {
-      background: var(--primary-color);
-      color: white;
+      background: white;
+      color: #000;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1rem;
       padding: 12px 0;
       border: none;
-      border-radius: 30px;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: var(--shadow-glow);
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
     }
+
     button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px var(--secondary-color);
+      background: #00bfff;
+      color: white;
+      box-shadow: 0 0 20px var(--secondary-color);
     }
-    /* Embed preview container */
+
     .embed-preview {
-      flex: 1;
       background: #111;
       border-radius: 12px;
       box-shadow: var(--shadow-glow);
       padding: 1.5rem;
-      color: var(--text-color-dark);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      user-select: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
+
     .embed-title {
       font-size: 1.5rem;
-      font-weight: 700;
       color: var(--primary-color);
-      text-shadow: 0 0 10px var(--glow-color);
-      margin-bottom: 0.7rem;
-      cursor: default;
+      margin-bottom: 0.5rem;
     }
+
     .embed-description {
       font-size: 1.1rem;
       margin-bottom: 1rem;
-      white-space: pre-wrap;
-      line-height: 1.4;
-      cursor: default;
-      flex-grow: 1;
     }
+
     .embed-url {
       color: var(--secondary-color);
       font-size: 1rem;
       margin-bottom: 1rem;
-      cursor: pointer;
-      text-decoration: underline;
-      word-break: break-all;
+      display: inline-block;
     }
+
     .embed-image {
-      width: 100%;
-      max-height: 250px;
-      object-fit: contain;
+      max-width: 100%;
       border-radius: 8px;
-      box-shadow: 0 0 25px var(--glow-color);
-      display: block;
-      margin: auto;
+      margin-top: 10px;
     }
-    @media (max-width: 850px) {
-      .container {
-        flex-direction: column;
-      }
-      form, .embed-preview {
-        flex: none;
-        width: 100%;
-      }
+
+    @media (max-width: 768px) {
       nav {
         flex-direction: column;
         height: auto;
         padding: 1rem;
       }
+
       nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 10px;
       }
     }
   </style>
@@ -214,38 +187,39 @@
   <nav>
     <div class="logo">Omex</div>
     <ul>
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="invite.html">Invite</a></li>
       <li><a href="commands.html">Commands</a></li>
       <li><a href="premium.html">Premium</a></li>
       <li><a href="support.html">Support</a></li>
+      <li><a href="omex-welcome-editor.html" class="active">Welcome Editor</a></li>
     </ul>
   </nav>
 
   <h1>Omex - Welcome Embed Editor</h1>
 
   <div class="container">
-    <form id="embedForm" autocomplete="off" spellcheck="false">
+    <form id="embedForm">
       <label for="title">Title</label>
-      <input type="text" id="title" placeholder="Enter embed title" />
+      <input type="text" id="title" placeholder="Enter embed title">
 
       <label for="description">Description</label>
       <textarea id="description" rows="4" placeholder="Enter embed description"></textarea>
 
-      <label for="url">URL (optional)</label>
-      <input type="text" id="url" placeholder="https://example.com" />
+      <label for="url">URL</label>
+      <input type="text" id="url" placeholder="https://example.com">
 
-      <label for="image">Image URL (optional)</label>
-      <input type="text" id="image" placeholder="https://example.com/image.png" />
+      <label for="image">Image URL</label>
+      <input type="text" id="image" placeholder="https://example.com/image.png">
 
       <button type="submit">Done</button>
     </form>
 
-    <div class="embed-preview" id="embedPreview" aria-live="polite" aria-label="Embed preview">
+    <div class="embed-preview" id="embedPreview">
       <div class="embed-title" id="previewTitle">Embed Title</div>
       <div class="embed-description" id="previewDescription">Embed description will appear here...</div>
-      <a href="#" target="_blank" rel="noopener noreferrer" class="embed-url" id="previewUrl" style="display:none;">Link</a>
-      <img src="" alt="Embed Image" class="embed-image" id="previewImage" style="display:none;" />
+      <a href="#" target="_blank" id="previewUrl" class="embed-url" style="display:none;"></a>
+      <img src="" alt="Embed Image" class="embed-image" id="previewImage" style="display:none;">
     </div>
   </div>
 
@@ -260,7 +234,6 @@
     const previewUrl = document.getElementById('previewUrl');
     const previewImage = document.getElementById('previewImage');
 
-    // Update preview live
     function updatePreview() {
       const title = titleInput.value.trim();
       const desc = descInput.value.trim();
@@ -276,8 +249,6 @@
         previewUrl.textContent = url;
       } else {
         previewUrl.style.display = 'none';
-        previewUrl.href = '#';
-        previewUrl.textContent = '';
       }
 
       if (image) {
@@ -285,52 +256,20 @@
         previewImage.src = image;
       } else {
         previewImage.style.display = 'none';
-        previewImage.src = '';
       }
     }
 
-    // Initial preview update
-    updatePreview();
-
-    // Event listeners
     titleInput.addEventListener('input', updatePreview);
     descInput.addEventListener('input', updatePreview);
     urlInput.addEventListener('input', updatePreview);
     imageInput.addEventListener('input', updatePreview);
 
-    // Form submit
     document.getElementById('embedForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      const payload = {
-        title: titleInput.value.trim(),
-        description: descInput.value.trim(),
-        url: urlInput.value.trim(),
-        image: imageInput.value.trim(),
-      };
-
-      if (!payload.title && !payload.description) {
-        alert('Please add at least a title or description.');
-        return;
-      }
-
-      try {
-        const res = await fetch('/api/update-welcome', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-
-        if (res.ok) {
-          alert('Welcome embed updated successfully!');
-        } else {
-          const data = await res.json();
-          alert('Error: ' + (data.error || 'Unknown error'));
-        }
-      } catch (err) {
-        alert('Network error: ' + err.message);
-      }
+      alert('Submitted (this is just a placeholder).');
     });
+
+    updatePreview();
   </script>
 </body>
 </html>
