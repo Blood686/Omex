@@ -15,6 +15,9 @@
       --input-bg: #111;
       --input-border: #00bfff;
       --shadow-glow: 0 0 20px var(--glow-color);
+      --nav-bg: #111;
+      --nav-link-color: var(--text-color-dark);
+      --nav-link-hover: var(--primary-color);
     }
     * {
       box-sizing: border-box;
@@ -30,10 +33,55 @@
       flex-direction: column;
       align-items: center;
     }
+    /* NAVBAR */
+    nav {
+      width: 100%;
+      background: var(--nav-bg);
+      box-shadow: 0 0 20px var(--glow-color);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      height: 50px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      text-shadow: 0 0 10px var(--glow-color);
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: var(--nav-link-color);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      display: inline-block;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--nav-link-hover);
+      background-color: rgba(0, 191, 255, 0.15);
+      box-shadow: 0 0 8px var(--glow-color);
+    }
+
     h1 {
       color: var(--primary-color);
       text-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--secondary-color);
       margin-bottom: 2rem;
+      user-select: none;
     }
     .container {
       display: flex;
@@ -148,10 +196,32 @@
         flex: none;
         width: 100%;
       }
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">Omex</div>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="invite.html">Invite</a></li>
+      <li><a href="commands.html">Commands</a></li>
+      <li><a href="premium.html">Premium</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </nav>
+
   <h1>Omex - Welcome Embed Editor</h1>
 
   <div class="container">
